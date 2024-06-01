@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex-direction</title>
+    <style>
+      .flex-container {
+        background-color: rgb(187, 103, 58);
+        /* display는 부모에 넣어주어야한다 */
+        display: flex;
+        /* flex-direction은 flex의 방향을 설정 (row가 default) */
+        flex-direction: column;
+      }
+      .flex-item {
+        background-color: rgb(249, 220, 128);
+        width: 100px;
+        margin: 10px;
+        text-align: center;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+    </div>
+  </body>
+</html>

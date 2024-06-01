@@ -1,0 +1,6 @@
+/* 인쇄될 때의 화면 */
+@media print {
+  body {
+    background-color: blue;
+  }
+}

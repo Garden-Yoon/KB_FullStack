@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      x : <input type="text" v-model.number="x" /><br />
+      y : <input type="text" v-model.number="y" /><br />
+      덧셈 결과 : {{sum}}
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            x: 0,
+            y: 0,
+          };
+        },
+        // computed는 proxy 객체를 가지고 있으면 해당 객체들이 변경될 때 마다
+        // 자동으로 값을 다시 계산해준다
+        computed: {
+          sum() {
+            let result = Number(this.x) + Number(this.y);
+            if (isNaN(result)) return 0;
+            else return result;
+          },
+        },
+      }).mount('#app'); //id가 app인 요소와 연결해줌
+    </script>
+  </body>
+</html>

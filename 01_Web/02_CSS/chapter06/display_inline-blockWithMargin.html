@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>inline-block의 특징</title>
+    <style>
+      #box {
+        /* inline-block의 경우 수평 정렬이 된다
+        1. 수평 정렬이 된다 (inline의 특징)
+        2. 높이, 넓이, 여백이 적용된다 (block의 특징) */
+        display: inline-block;
+        background-color: red;
+        width: 100px;
+        height: 50px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>의미 없는 더미 객체</p>
+    <span>더미 객체</span>
+    <div id="box">대상 객체</div>
+    <span>더미 객체</span>
+    <p>의미 없는 더미 객체</p>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>order</title>
+    <style>
+      .flex-container {
+        background-color: rgb(187, 103, 58);
+        width: 400px;
+        height: 200px;
+        /* display는 부모에 넣어주어야한다 */
+        display: flex;
+      }
+      .flex-item {
+        background-color: rgb(249, 220, 128);
+        width: 100px;
+        height: 100px;
+        border: 3px solid black;
+        text-align: center;
+        font-size: 30px;
+      }
+      .flex-item:nth-child(1) {
+        /* order의 default 값은 0, 값이 클 수록 뒤로 감 (자식)
+          음수값 기입 시 앞쪽으로 배치됨 */
+        order: 17;
+      }
+      .flex-item:nth-child(3) {
+        order: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<template>
+  <div class="child">
+    <h2>Child3</h2>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Child3',
+};
+</script>
+
+<!-- scoped를 사용하면 해당 컴포넌트에만 적용된다 -->
+<style scoped>
+.child {
+  background-color: orange;
+  border: solid 1px black;
+  /* em은 부모요소의 몇배수 */
+  margin: 1.5em;
+  padding: 1em;
+}
+</style>

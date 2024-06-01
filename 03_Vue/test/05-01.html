@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문자열 변환 도구</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>문자열 변환 도구</h1>
+      <input
+        type="text"
+        v-model="textInput"
+        placeholder="여기에 문자열을 입력하세요"
+      />
+      <button v-on:click="toUpperCase">대문자로 변환</button>
+      <button v-on:click="reverseText">문자열 뒤집기</button>
+      <br />
+      <h3>결과 : [{{result}}]</h3>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            // amount : 실제 입력값, balance : 잔고
+            textInput: '',
+            result: '',
+          };
+        },
+        methods: {
+          toUpperCase() {
+            this.result = this.textInput.toUpperCase();
+          },
+          reverseText() {
+            this.result = this.textInput.split('').reverse().join('');
+          },
+        },
+      }).mount('#app'); //id가 app인 요소와 연결해줌
+    </script>
+  </body>
+</html>

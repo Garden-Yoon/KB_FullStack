@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      위의 내용에 동의하십니까?
+      <!-- 체크박스를 agree 데이터와 양방향 바인딩함 -->
+      <!-- 체크를 하면 yes, 해제 시 no가 바인딩되도록 함 -->
+      <input
+        type="checkbox"
+        v-model="agree"
+        true-value="yes"
+        false-value="no"
+      />
+      <hr />
+      <span>선택된 값 : {{agree}}</span>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            agree: 'no',
+          };
+
+          //   2. data의 name이 변경되면서 화면의 name을 변경시킨다
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

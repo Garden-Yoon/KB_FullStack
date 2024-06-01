@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if else문_오전오후 판별</title>
+    <script>
+      // Date 객체 선언 : 현재 시간 측정
+      let date = new Date();
+      let hours = date.getHours();
+
+      // if 문을 사용하여 조건을 만족(참)하면 if문 안의 문장이 실행
+      if (hours < 12) {
+        alert('오전이다!');
+      }
+      // if문이 거짓일 경우 else 안의 문장이 실행
+      else {
+        alert('오후이다!');
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

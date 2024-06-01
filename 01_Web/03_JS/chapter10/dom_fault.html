@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>script 실행 순서에 따른 오류</title>
+    <!-- 순서대로 실행되기때문에, script를 실행할때 h1, h2가 없는 상태여서 오류가
+    발생한다. 없는 속성은 null로 반환한다.
+    즉, 스크립트 태그가 위에 있끼 때문에 html 요소를 찾지 못한다.
+    <script>
+      h1 태그의 배경 색상 변경
+      ()안에는 작은 따옴표 사용
+      document.querySelector('h1').style.backgroundColor = 'red';
+      h1 태그의 글자 색상 변경
+      document.querySelector('h2').style.color = 'red';
+    </script>
+         -->
+  </head>
+  <body>
+    <h1>Process - 1</h1>
+    <h2>Process - 2</h2>
+  </body>
+  <script>
+    // document라는 객체 안의 quertySelector라는 메서드 (매개변수 h1)
+    // .style.backgroundColor : 메서드의 리턴 값을
+    document.querySelector('h1').style.backgroundColor = 'red';
+    document.querySelector('h2').style.color = 'red';
+  </script>
+</html>

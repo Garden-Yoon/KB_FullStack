@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 추가해서 그라데이션 박스 만들기</title>
+    <script>
+      // 이벤트를 연결
+      window.onload = function () {
+        // 객체 추가
+        let output = '';
+        for (let i = 0; i < 256; i++) {
+          output += '<div></div>';
+        }
+        document.body.innerHTML = output;
+
+        let divs = document.querySelectorAll('div');
+        // div length가 아나리 divs.length로 받아야함!
+        for (let i = 0; i < divs.length; i++) {
+          let div = divs[i];
+
+          //   스타일을 적용
+          div.style.height = '2px';
+
+          div.style.background = `rgb(${i}, ${i}, ${i})`;
+          div.style.background = 'rgb(' + i + ', ' + i + ',' + i + ')';
+        }
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

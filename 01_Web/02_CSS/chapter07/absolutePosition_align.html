@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 초기화 */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /* 주제 */
+      body {
+        background-color: red;
+      }
+
+      #container {
+        width: 500px;
+        height: 250px;
+        background-color: orange;
+        /* 위치 지정 */
+        /* position을 세팅하지 않으면 static이 Default이므로
+        left, top 등이 적용되지 않는다. */
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        /* margin-left: calc(500px / -2); 로도 사용 가능하다 */
+        margin-left: -250px;
+        margin-top: -125px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>요소의 중앙 배치</h1>
+    </div>
+  </body>
+</html>

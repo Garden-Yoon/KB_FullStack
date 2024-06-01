@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>너비에 따른 미디어 쿼리 설정</title>
+    <style>
+      /* 미디어 쿼리로 규칙을 만들어줄 수 있다 */
+      /* 스크린이면서 최대 너비 767px까지*/
+      @media screen and (max-width: 767px) {
+        body {
+          background-color: red;
+        }
+      }
+      /* 스크린이면서 너비 768 ~ 959px까지*/
+      @media screen and (min-width: 768px) and (max-width: 959px) {
+        body {
+          background-color: green;
+        }
+      }
+      /* 스크린이면서 너비가 960px 이상 */
+      @media screen and (min-width: 960px) {
+        body {
+          background-color: blue;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio rerum non
+      modi et ad fuga, qui pariatur eius aut nulla. Numquam dicta in consectetur
+      praesentium tenetur quisquam doloremque inventore delectus laudantium
+      autem harum reprehenderit maiores, asperiores ut? Impedit, voluptas quas.
+      Sapiente provident ea consectetur optio, doloribus minus dolor molestias
+      natus debitis tempore, modi minima dolores aliquid eos hic! Ducimus beatae
+      velit recusandae! Quasi dignissimos, enim numquam iure saepe nihil
+      excepturi libero, soluta voluptatum, similique tempore ducimus quidem a
+      modi reiciendis eligendi! Facere ullam id ipsam odio sed, hic magnam
+      commodi aliquid vitae libero, explicabo ad mollitia eius! Ratione,
+      laboriosam quaerat!
+    </p>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>해결방법 1. script 태그 옮기기</title>
+  </head>
+  <body>
+    <h1>Process - 1</h1>
+    <h2>Process - 2</h2>
+
+    <!-- 해결방법 : 스크립트 태그를 바디 아래로 옮긴다-->
+    <script>
+      // document라는 객체 안의 quertySelector라는 메서드 (매개변수 h1)
+      // .style.backgroundColor : 메서드의 리턴 값을
+      // h1 태그의 배경 색상 변경
+      document.querySelector('h1').style.backgroundColor = 'red';
+      // h1 태그의 글자 색상 변경
+      document.querySelector('h2').style.color = 'red';
+    </script>
+  </body>
+</html>

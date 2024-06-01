@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ID 선택자</title>
+    <style>
+      /* *은 id를 설명해준다 */
+      #header {
+        background-color: red;
+        width: 800px;
+        margin: 0 auto;
+        /* margin을 넣기 위한 조건: 블록, width 존재 */
+      }
+
+      #wrap {
+        width: 800px;
+        /* aside, content가 wrap 안에 있으므로, wrap만 margin 적용 */
+        margin: 0 auto;
+      }
+
+      #aside {
+        width: 200px;
+        float: left;
+        background-color: blue;
+      }
+      #content {
+        width: 600px;
+        float: left;
+        background-color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="header">
+      <!-- div#header -> div header 한번에 생성 가능 -->
+      <h1>#header 태그</h1>
+    </div>
+    <div id="wrap">
+      <div id="aside">
+        <h1>#aside 태그</h1>
+      </div>
+      <div id="content">
+        <h1>#content 태그</h1>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #outer {
+        width: 200px;
+        height: 200px;
+        border: solid 2px black;
+        background-color: aqua;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        padding: 10px;
+      }
+      #inner {
+        width: 100px;
+        height: 100px;
+        border: solid 2px black;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- outer 클릭 시 outerclick 호출, inner클릭 시 innerClick 호출 -->
+      <!-- .stop으로 해당 이벤트를 stopPropaggation() 호출 -->
+      <!-- 해당 요소를 클릭 시 버블링 현상이 발생하지 않도록 막아줌 -->
+      <div id="outer" @click.stop="outerClick">
+        <div id="inner" @click.stop="innerClick"></div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {};
+        },
+        methods: {
+          // outer 요소를 클릭했을 경우엔 버블링 없이 outerClick만 출력
+          outerClick(e) {
+            console.log('### OUTER CLICK');
+            console.log('Event Pase : : ', e.eventPhase);
+            console.log('Current Target : ', e.currentTarget);
+            console.log('Target: ', e.target);
+          },
+          //   inner 요소를 클릭했을 경우엔 innerClick 실행 후 outerClick까지 실행됨
+          //   -> 자식 요소가 부모 요소로 이벤트를 전파시키는 버블링 현상
+          //   버블링일 경우 eventPhase가 3으로 나옴
+          innerClick(e) {
+            console.log('### INNER CLICK');
+            console.log('Event Pase : ', e.eventPhase);
+            console.log('Current Target : ', e.currentTarget);
+            console.log('Target: ', e.target);
+          },
+        },
+      }).mount('#app'); //id가 app인 요소와 연결해줌
+    </script>
+  </body>
+</html>

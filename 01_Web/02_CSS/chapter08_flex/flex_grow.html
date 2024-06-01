@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex_grow</title>
+    <style>
+      .flex-container {
+        background-color: rgb(187, 103, 58);
+        width: 400px;
+        height: 200px;
+        /* display는 부모에 넣어주어야한다 */
+        display: flex;
+      }
+      .flex-item {
+        background-color: rgb(249, 220, 128);
+        width: 100px;
+        height: 100px;
+        border: 3px solid black;
+        text-align: center;
+        font-size: 30px;
+      }
+
+      .flex-item:nth-child(2) {
+        /* flex-grow: 증가 비율, 0이 Default (자식)
+          flex-basis를 기준으로 움직임(base를 빼고 비율로 나눔)
+          -> 텍스트 부분을 제외하고 비율로 나눔 */
+        flex-grow: 1;
+        /* flex-basis: 요소의 초기 크기
+        값을 0으로 주면 정확히 N:M비율이 됨 */
+        flex-basis: 0;
+      }
+
+      .flex-item:nth-child(3) {
+        /* flex-grow: 증가 비율, 0이 Default (자식) */
+        flex-grow: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </body>
+</html>

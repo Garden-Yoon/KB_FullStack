@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>버튼 눌렀을 때 사용자 이름 출력하기</title>
+    <script>
+      window.onload = function () {
+        // let button = document.getElementById('btn');
+        // botton.addEventListener
+        // 버튼을 찾아와서 클릭할 때 함수 연결
+        document.getElementById('btn').addEventListener('click', function () {
+          // 텍스트박스를 찾아옴
+          let name = document.getElementById('name');
+          // name은 HTML 요소이기때문에, value로 텍스트를 가져와야 함
+          console.log(name.value);
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <form>
+      <label for="name">이름:</label>
+      <!-- size는 길이 -->
+      <input id="name" name="name" type="text" size="30" />
+      <input id="btn" type="button" value="전송" />
+    </form>
+  </body>
+</html>

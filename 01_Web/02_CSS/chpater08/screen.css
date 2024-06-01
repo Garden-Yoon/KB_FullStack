@@ -1,0 +1,7 @@
+/* 기본화면 */
+@media screen {
+  /* 선택자는 내부에 따로 지정해줘야 한다 */
+  body {
+    background-color: red;
+  }
+}

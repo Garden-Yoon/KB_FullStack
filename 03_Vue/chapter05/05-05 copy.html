@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 마우스 오른쪽 클릭 시 ctxStop 함수 -->
+      <!-- 특정 이벤트 preventdefault를 적용할 경우, .prevent로 줄여 쓸 수 있다 -->
+      <div
+        @contextmenu.prevent
+        style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px"
+      ></div>
+      <!-- 링크 클릭 시 confirmFB함수 호출 -->
+      <a href="https://facebook.com" @click="confirmFB">페이스북</a>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            ctxStop(e) {
+              // 마우스 오른쪽 클릭 시 뜨는 메뉴창을 뜨지 못하게함
+              e.preventDefault();
+            },
+            confirmFB(e) {
+              // confirm 창에서 취소를 눌렀을 경우 링크이동을 못하게 함
+              // confirm함수는 확인, 취소 입력에 따라 응답을 boolean으로 리턴한다
+              if (!confirm('페이스북으로 이동할까요?')) {
+                e.preventDefault();
+              }
+            },
+          };
+        },
+      }).mount('#app'); //id가 app인 요소와 연결해줌
+    </script>
+  </body>
+</html>

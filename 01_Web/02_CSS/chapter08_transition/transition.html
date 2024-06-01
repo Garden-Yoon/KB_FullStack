@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        /* 변경되는데 자연스럽게 애니메이션으로 변경되는데 1초 소요
+        콤마로 따로 줄 수도 있다 */
+        /* transition: 속성명 지속시간 타이밍함수 대기시간; */
+        transition: width 0.5s;
+        background-color: 5s;
+      }
+
+      div:hover {
+        width: 400px;
+        background-color: rgb(178, 135, 208);
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>

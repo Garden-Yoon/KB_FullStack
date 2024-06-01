@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 변수 받기 : 중괄호 2개 사용
+        이 위치에 변수의 값을 출력하라 -->
+      <h2>{{message}}</h2>
+    </div>
+    <!--뷰 모델 import
+        sript src로 내 컴퓨터에 다운 X, 인터넷에서 받아서 사용함 -->
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let model = { message: 'Hello Vue3!' };
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return model;
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

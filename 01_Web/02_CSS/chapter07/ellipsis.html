@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ellipsis 적용하기 (말줄임)</title>
+    <style>
+      h1,
+      p {
+        width: 500px;
+      }
+      .ellipsis {
+        /* 공백에서 줄바꿈 안 한다. */
+        white-space: nowrap;
+        /* 넘치는거 안보이게 한다. */
+        overflow: hidden;
+        /* 시각적으로 말줄임표를 추가한다. */
+        text-overflow: ellipsis;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="ellipsis">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti ipsum
+      accusamus error nostrum facilis officia soluta odio ab pariatur quibusdam!
+    </h1>
+    <p class="ellipsis">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed fugit nobis
+      recusandae amet similique. Consectetur, quo? Ea exercitationem facilis
+      dignissimos.
+    </p>
+  </body>
+</html>

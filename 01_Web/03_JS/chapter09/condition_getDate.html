@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>현재 시간 구하기</title>
+    <script>
+      // Date 객체를 선언, 이미 자바스크립트 내에 있는 객체
+      let date = new Date();
+
+      // 요소를 추출
+      let year = date.getFullYear();
+      //getMonth : 0이 1월임
+      let month = date.getMonth() + 1;
+      //getDay : 0이 일요일
+      let day = date.getDay();
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let seconds = date.getSeconds();
+
+      // 콘솔창에 출력하기
+      console.log(year);
+      console.log(month);
+      console.log(day);
+      console.log(hours);
+      console.log(minutes);
+      console.log(seconds);
+      console.log(date);
+
+      // 콘솔창에 여러개 출력하기
+      console.log(year, month, day, hours, minutes, seconds);
+    </script>
+  </head>
+  <body></body>
+</html>

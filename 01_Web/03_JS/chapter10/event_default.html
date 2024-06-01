@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 객체 받아오기</title>
+    <script>
+      window.onload = function () {
+        let button = document.getElementById('button');
+
+        // 이벤트를연결
+        button.onclick = function () {
+          // 기본 이벤트를 제거
+          return false;
+          // event.preventDefault();
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <a id="button" href="http://naver.com">버튼</a>
+  </body>
+</html>

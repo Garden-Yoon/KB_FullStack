@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사용자 지정 속성 지정하기/가져오기</title>
+    <script>
+      // 이벤트를 연결한다
+      window.onload = function () {
+        // 속성 지정
+        // setAttribute(속성명, 값) : 해당 속성 명에 해당 값을 지정
+        document.body.setAttribute('data-custom', 'value');
+        // 속성 추출
+        // getAttribute(속성명, 값) : 해당 속성 명에 해당 값을 추출
+        let dataCustom = document.body.getAttribute('data-custom');
+        alert(dataCustom);
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <h2>취미생활</h2>
+        <!-- label로 글씨와 체크박스를 묶어서 함께 동작하도록 함 -->
+        <!-- 해당 체크박스를 선택했을 경우 해당 체크박스의 value값이 hobby 배열에 추가된다 -->
+        <label> <input type="checkbox" value="A" v-model="hobby" />운동</label>
+        <label><input type="checkbox" value="B" v-model="hobby" />독서</label>
+        <label> <input type="checkbox" value="C" v-model="hobby" />음악 </label>
+        <label> <input type="checkbox" value="D" v-model="hobby" />댄스 </label>
+        <label> <input type="checkbox" value="E" v-model="hobby" />역사 </label>
+      </div>
+      <div>
+        <h2>상품 분류 선택</h2>
+        <select v-model="category">
+          <!-- 해당 옵션을 선택했을 경우 해당 옵션의 value값이 category로 넘어간다 -->
+          <option value="">---상품 분류를 선택하세요.</option>
+          <option value="C01">레저</option>
+          <option value="C02">가전</option>
+          <option value="C03">음식</option>
+          <option value="C04">도서</option>
+          <option value="C05">주방</option>
+        </select>
+      </div>
+      <hr />
+      <div>
+        <!-- join : 배열의 메소드로 배열을 해당 구분자로 합쳐서 문자열로 반환 -->
+        선택한 취미 : {{hobby.join(',')}}
+        <br />
+        선택한 상품 분류 : {{category}}
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            hobby: [], //다중 선택이 가능하므로 배열로 초기화
+            category: '', //단일 선택이므로 문자로 초기화
+          };
+
+          //   2. data의 name이 변경되면서 화면의 name을 변경시킨다
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

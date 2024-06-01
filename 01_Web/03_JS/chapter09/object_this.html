@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체에서의 this 사용</title>
+    <script>
+      //객체 선언
+      let person = {
+        name: '윤정원',
+        eat: function (food) {
+          // this는 자기자신이 된다. (여기서는 person이 됨)
+          alert(this.name + '이 ' + food + '을/를 먹습니다.');
+          //백틱으로 적기
+          // alert(`${this.name}이 ${food}을/를 먹습니다.`);
+        },
+      };
+
+      // 메서드 : 객체 안에 있는 함수
+      //.으로 객체 안의 속성에 접근한다.
+      // 객체의 속성을 사용할 때는 .을 붙이거나 []안에 키값을 넣는다.
+      person.eat('푸딩');
+    </script>
+  </head>
+  <body></body>
+</html>

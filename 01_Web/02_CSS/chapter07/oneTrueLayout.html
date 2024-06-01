@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 500px;
+        margin: 10px auto;
+      }
+
+      #top {
+        background-color: green;
+      }
+      #middle {
+        /* display를 flex로 설정하면 자동으로 수평 정렬 된다
+        -> overflow hidden, float 등 사용하지 않아도 됨 */
+        overflow: hidden;
+      }
+      #left {
+        width: 200px;
+        float: left;
+        background-color: red;
+      }
+      #right {
+        width: 300px;
+        float: right;
+        background-color: blue;
+      }
+
+      #bottom {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="top">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum vitae,
+      eaque nemo debitis, eveniet facilis quibusdam, numquam suscipit doloremque
+      perspiciatis quis consequuntur iste. Illum vel non incidunt temporibus
+      quasi rem.
+    </div>
+    <div id="middle">
+      <div id="left">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga iste
+        sequi sed rerum?
+      </div>
+      <div id="right">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+        voluptate est architecto omnis earum modi recusandae dignissimos quidem
+        dolores iure reiciendis blanditiis voluptates, aliquam nemo.
+      </div>
+    </div>
+    <div id="bottom">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo
+      ratione culpa modi ea aliquid iste eius, odio beatae officiis ipsam,
+      dolorem, velit dolor. Dolor, harum dolorum veritatis earum pariatur
+      voluptatum.
+    </div>
+  </body>
+</html>

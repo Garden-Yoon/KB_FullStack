@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>후손 선택자</title>
+    <style>
+      /* #header h1 앞 요소의 후손인 뒷 요소를 선택 (html의 띄어쓰기와 상이함)
+         #header > h1 : 앞 요소의 자손인 뒷 요소를 선택 */
+      #header > h1 {
+        color: red;
+      }
+      #section > h1 {
+        color: orange;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="header">
+      <h1 class="title">Lorem, ipsum</h1>
+      <div id="nav">
+        <h1>Navigation</h1>
+      </div>
+    </div>
+
+    <div id="section">
+      <h1 class="title">Lorem, ipsum</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas
+        sapiente dignissimos impedit?
+      </p>
+    </div>
+  </body>
+</html>

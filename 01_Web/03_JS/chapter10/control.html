@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>textContent와 innerHTML의 차이</title>
+    <script>
+      // 이벤트 연결
+      window.onload = function () {
+        // 변수 초기화
+        let output = '';
+        for (let i = 0; i < 10; i++) {
+          output += '<h1>Header - ' + i + '</h1>';
+          output = output + `<h1>Header - ${i} `;
+        }
+
+        // tectContent : 객체 내부 글자 변경 (문자로 인식한다)
+        // document.body.textContent = output;
+        // innerHTML : 객체 내부 요소 변경(요소로 인식한다)
+        document.body.innerHTML = output;
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

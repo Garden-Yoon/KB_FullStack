@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <table>
+        <tr>
+          <!-- for: 매칭시킬 input의 id와 동일해야 같이 동작 -->
+          <td><label for="username">이름</label></td>
+          <!-- id: 요소들의 고유한 이름 -->
+          <!-- name: 서버에 넘겨주기 위한 key값 (www.naver.com?username="윤정원") -->
+          <td><input id="username" type="text" name="가입" /></td>
+        </tr>
+        <tr>
+          <td>성별</td>
+          <td>
+            <!-- name: 키값 용도 + 그룹 묶어주는 용도 -->
+            <input id="man" type="radio" name="gender" value="m" />
+            <label for="man">남자</label>
+            <!--
+            <label>
+              <input id="man" type="radio" name="gender" value="m" /></label>
+              -->
+            <label for="woman">여자</label>
+            <input id="woman" type="radio" name="gender" value="w" />
+          </td>
+          <td></td>
+        </tr>
+      </table>
+
+      <input type="submit" value="가입" />
+    </form>
+  </body>
+</html>

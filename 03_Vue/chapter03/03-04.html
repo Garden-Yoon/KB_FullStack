@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- v-model 디렉티브는 양방향 바인딩을 지원한다 -->
+      <!-- 속성값 -> 화면 변경, 화면 -> 속성값 변경 둘다 가능 -->
+      <!-- 1. input 에 이름을 입력하면 data의 name을 변경시킨다 -->
+      <input type="text" v-model="name" />
+      <br />
+      <!-- 3. 변경된 name이 출력된다 -->
+      입력한 값 : <span>{{name}}</span>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return { name: '' };
+          //   2. data의 name이 변경되면서 화면의 name을 변경시킨다
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

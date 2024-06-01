@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>align -items</title>
+    <style>
+      .flex-container {
+        background-color: rgb(187, 103, 58);
+        width: 400px;
+        height: 200px;
+        /* display는 부모에 넣어주어야한다 */
+        display: flex;
+        /* justify-content: 기본적으로 수평 정렬 */
+        justify-content: space-around;
+        /* align-items: 기본적으로 수직 정렬 (1줄 정렬) */
+        /* align-content: 기본적으로 수직 정렬 (여러줄 정렬) */
+        align-items: center;
+      }
+      .flex-item {
+        background-color: rgb(249, 220, 128);
+        width: 100px;
+        height: 100px;
+        border: 3px solid black;
+        text-align: center;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </body>
+</html>

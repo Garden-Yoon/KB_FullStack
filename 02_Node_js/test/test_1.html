@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 사용자에게 입력받음
+      //parseFloat : 실수(float)로 받는다.
+      let input = parseFloat(prompt('cm 단위를 입력해주세요.', '입력'));
+
+      let inch = input / 2.54;
+      let feet = inch / 12;
+
+      alert(`${input}은 ${inch} 인치, ${feet}피트 입니다.`);
+
+      consol.log(input);
+    </script>
+  </head>
+  <body></body>
+</html>

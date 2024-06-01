@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let human = {
+        name: '김상형',
+        age: 29,
+      };
+      // kim에 human 객체 주소값 복사
+
+      let kim = human;
+      kim.name = '김태희';
+
+      // human과 kim은 같은 주소값을 가지고있끼때문에 값이 같이 변경된다
+
+      document.write(`name = ${human.name} <br>`);
+      document.write(`age = ${human.age} <br>`);
+    </script>
+  </body>
+</html>

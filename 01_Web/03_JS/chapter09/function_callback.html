@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>콜백함수</title>
+    <script>
+      // 함수 선언
+      function callTenTimes(callback) {
+        // 10회 반복
+        for (let i = 0; i < 10; i++) {
+          callback(); //매개변수로 전달된 함수 호출
+        }
+      }
+
+      // 콜백 함수를 익명 함수로 만들어줌
+      let fun = function () {
+        alert('함수 호출');
+      };
+
+      // 함수 호출
+      // fun은 함수인데 콜백으로 들어갈때는 뒤에 괄호()가 안붙는다.
+      callTenTimes(fun);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if else if_논리연산자로 계절 구하기</title>
+    <script>
+      // 변수 선언
+      let date = new Date();
+      let month = date.getMonth() + 1;
+
+      // 조건문
+      // JS는 대소문자 구분을 잘해줘야한다.
+      if (3 <= month && month < 6) {
+        alert('봄이당!');
+      } else if (6 <= month && month < 9) {
+        alert('여름이당!');
+      } else if (9 <= month && month < 12) {
+        alert('가을이당!');
+      } else {
+        alert('겨울이당!');
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>행성 정보 출력 애플리케이션 구현t</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <select v-model="selectedPlanet">
+          <option value="">행성을 선택하세요</option>
+          <option v-for="planet in planets" :value="planet.name">
+            {{planet.name}}
+          </option>
+        </select>
+
+        <div v-if="selectedPlanet">
+            <h2>{{selectedPlanet}}</h2>
+            <p>질량 : {{ getPlanetInfo(selectedPlanet).mass }}</p>
+            <p>크기 : {{ getPlanetInfo(selectedPlanet).size }}</p>
+            <p>특징 : {{ getPlanetInfo(selectedPlanet).features }}</p>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            selectedPlanet:'',
+            planets: [
+                {name : 'Earth', mass:'5.972 x 10^24 kg', size: '6,371 km', features: '생명체가 존재하는 유일한 행성' },
+                {name : 'Jupiter', mass:'1.898 x 10^27 kg', size: '69,911 km', features: '태양계에서 가장 큰 행성' },
+                {name : 'Mars', mass:'6.39 x 10^23 kg', size: '3,389.5 km', features: '빨간색 표면이 특징' }
+          ]
+        };
+    },
+            methods : {
+                getPlanetInfo(planetName) {
+                    return this.planets.find(planet => planet.name === planetName);
+            
+          }
+        }
+      }).mount('#app'); //id가 app인 요소와 연결해줌
+    </script>
+  </body>
+</html>

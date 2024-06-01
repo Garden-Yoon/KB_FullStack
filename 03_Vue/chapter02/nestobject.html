@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>중첩 오브젝트: 객체 안의 객체</title>
+  </head>
+  <body>
+    <script>
+      let human = {
+        name: '김상형',
+        age: 29,
+        address: {
+          city: '하남시',
+          dong: '덕풍동',
+          bunji: 638,
+        },
+      };
+
+      document.wrirte(`이름 = ${human.name}, 나이 = ${human.age}
+        `);
+      document.write(`주소 = ${human.address.city} ${human.address.dong} ${human.address.bunji}
+        `);
+    </script>
+  </body>
+</html>

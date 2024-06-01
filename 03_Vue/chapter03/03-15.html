@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #list {
+        width: 600px;
+        border: 1px solid black;
+        /* 테이블 선 여러개를 하나로 합쳐준다 */
+        border-collapse: collapse;
+      }
+      #list td,
+      #list th {
+        border: 1px solid black;
+        text-align: center;
+      }
+      #list > thead > tr {
+        color: yellow;
+        background-color: purple;
+      }
+      .divider {
+        height: 2px;
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <table id="list">
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>전화번호</th>
+          </tr>
+        </thead>
+        <tbody id="contacts">
+          <!-- 객체 배열인 contacts를 돌면서 객체 하나를 contact로 가져온다.
+          키 값은 요소의 no값으로 한다 -->
+          <!-- 하나로 묶여있지 않은 것들을 묶어서 반복하고 싶을때 템플릿을 사용한다
+          ex : tr말고 td 2개만 반복하고싶다든가 -->
+          <!-- 여러가지 요소를 한번에 반복하고 싶을 때 template 태그로 묶어준다 -->
+          <!-- template의 경우 실제 DOM 요소에 추가되지는 않는다 -->
+          <template v-for="(contact, index) in contacts" :key="contact.no">
+            <tr>
+              <td>{{index+1}}</td>
+              <td>{{contact.name}}</td>
+              <td>{{contact.tel}}</td>
+            </tr>
+            <!-- index가 4의 배수인 경우에만 divider 생성 -->
+            <!-- 4의 배수인 indext를 추가시킴 () index는 0부터 시작) -->
+            <tr class="divider" v-if="index % 4 ===3">
+              <!-- colspan으로 칸 세개 합쳐줌 -->
+              <td colspan="3"></td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            // 객체 배열
+            contacts: [
+              { no: 1011, name: '1번', tel: '010-0000-0001' },
+              { no: 1012, name: '2번', tel: '010-0000-0002' },
+              { no: 1013, name: '3번', tel: '010-0000-0003' },
+              { no: 1014, name: '4번', tel: '010-0000-0004' },
+              { no: 1015, name: '5번', tel: '010-0000-0005' },
+              { no: 1016, name: '6번', tel: '010-0000-0006' },
+              { no: 1017, name: '7번', tel: '010-0000-0007' },
+              // 아래는 4개 단위로 선 끊기는거 보려고 추가한 코드임
+              // { no: 1018, name: '8번', tel: '010-0000-0008' },
+            ],
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

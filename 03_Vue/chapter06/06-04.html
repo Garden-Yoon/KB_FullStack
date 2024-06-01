@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 객체를 두 개 이상 연결해줘야할 경우 객체 배열로 연결해줌 -->
+      <button
+        :style="[myColor, myLayout]"
+        @mouseover.stop="overEvent"
+        @mouseout.stop="outEvent"
+      >
+        테스트
+      </button>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            myColor: {
+              backgroundColor: 'purple',
+              Color: 'yellow',
+            },
+            myLayout: {
+              width: '150px',
+              heigth: '80px',
+              textAlign: 'center',
+            },
+          };
+        },
+      }).mount('#app'); //id가 app인 요소와 연결해줌
+    </script>
+  </body>
+</html>

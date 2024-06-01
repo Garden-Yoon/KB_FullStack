@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #list {
+        width: 600px;
+        border: 1px solid black;
+        /* 테이블 선 여러개를 하나로 합쳐준다 */
+        border-collapse: collapse;
+      }
+      #list td,
+      #list th {
+        border: 1px solid black;
+        text-align: center;
+      }
+      #list > thead > tr {
+        color: yellow;
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <table id="list">
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>전화번호</th>
+          </tr>
+        </thead>
+        <tbody id="contacts">
+          <!-- 객체 배열인 contacts를 돌면서 객체 하나를 contact로 가져온다.
+          키 값은 요소의 no값으로 한다 -->
+          <tr v-for="contact in contacts" :key="contact.no">
+            <td>{{contact.no}}</td>
+            <td>{{contact.name}}</td>
+            <td>{{contact.tel}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            // 객체 배열
+            contacts: [
+              { no: 1011, name: '1번', tel: '010-0000-0001' },
+              { no: 1012, name: '2번', tel: '010-0000-0002' },
+              { no: 1013, name: '3번', tel: '010-0000-0003' },
+              { no: 1014, name: '4번', tel: '010-0000-0004' },
+            ],
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

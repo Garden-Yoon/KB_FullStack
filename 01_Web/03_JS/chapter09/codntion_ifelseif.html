@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Date 객체 선언 : 현재 시간 측정
+      let date = new Date();
+      let hours = date.getHours();
+
+      // 처음 조건: 5시 이전
+      if (hours < 5) {
+        alert('잠을 자렴...');
+      }
+      // 5시 이후일때
+      // 5시 ~ 7시일때
+      else if (hours < 7) {
+        alert('준비');
+      }
+      // 7시~9시일때
+      else if (hours < 9) {
+        alert('준비');
+      }
+      // 9시~12시일때
+      else if (hours < 12) {
+        alert('빈둥쓰');
+      }
+      // 12시~14시일때
+      else if (hours < 14) {
+        alert('식사');
+      }
+      // 14시이후
+      else {
+        alert('여러가지 업무를 수행');
+      }
+    </script>
+  </body>
+</html>

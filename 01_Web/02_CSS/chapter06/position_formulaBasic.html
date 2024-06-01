@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        /* 따로 부모 요소를 relative로 지정해주지 않았을 경우엔 뷰포트 기준 */
+        position: absolute;
+      }
+      .box:nth-child(1) {
+        background-color: red;
+        left: 10px;
+        top: 10px;
+        z-index: 100;
+      }
+      .box:nth-child(2) {
+        background-color: green;
+        left: 50px;
+        top: 50px;
+        z-index: 10;
+      }
+
+      .box:nth-child(3) {
+        background-color: blue;
+        left: 100px;
+        top: 100px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <!-- dive안에 상자들을 넣어주지 않으면 h1에 가려져서 안보일 수 있음
+         dive 안의 것들(box)만 absolute고 그 외는 static이기 때문 -->
+    <div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+    <h1>Lorem ipsum dolor sit amet.</h1>
+  </body>
+</html>

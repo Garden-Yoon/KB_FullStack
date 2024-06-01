@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>해결방법 2. 이벤트 활용</title>
+
+    <script>
+      // 윈도우의 로딩이 끝났을 때 해당 함수를 불러준다
+      window.onload = function () {
+        // h1 태그의 배경 색상 변경
+        document.querySelector('h1').style.backgroundColor = 'red';
+        // h1 태그의 글자 색상 변경
+        document.querySelector('h2').style.color = 'red';
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Process - 1</h1>
+    <h2>Process - 2</h2>
+  </body>
+</html>

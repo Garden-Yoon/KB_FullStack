@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      잔고 : <input v-model="balance" />
+      <br />
+      회원님의 등급 :
+      <!-- if-else if-else 문으로 조건에 따라 요소를 출력한다 -->
+      <span v-if="balance > 1000000">Gold</span>
+      <span v-else-if="balance >=500000 ">Silver</span>
+      <span v-else-if="balance >=200000 ">Bronze</span>
+      <span v-else="balance">Basic</span>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return { balance: 0 };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
