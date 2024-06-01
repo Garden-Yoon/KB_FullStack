@@ -1,4 +1,5 @@
 <template>
+  <!-- navbar는 부트스트랩에서 가져오는거라서, 여기서 오타 생기면 문제 발생함 -->
   <nav class="navbar navbar-expand-md bg-dark navbar-dark mt-2">
     <span class="navbar-brand">이날치(LeeNalChi)</span>
     <button class="navbar-toggler" type="button" @click="changeIsNavShow">
