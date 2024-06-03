@@ -3,6 +3,7 @@ import Home from '@/pages/Home.vue';
 import About from '@/pages/About.vue';
 import Members from '@/pages/Members.vue';
 import Videos from '@/pages/Videos.vue';
+import NotFound from '@/pages/NotFound.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,6 +13,8 @@ const router = createRouter({
     { path: '/about', component: About },
     { path: '/members', component: Members },
     { path: '/videos', component: Videos },
+    // 어떤 문자든지 위에서 해당하지 않는 경로는 다 여기서 처리함 (404 라우터)
+    { path: '/:paths(.*)*', name: 'NotFound', component: NotFound },
   ],
 });
 
