@@ -37,7 +37,7 @@ FROM stdtbl S
 SELECT C.clubName, C.roomNO, S.stdName, S.addr
 FROM stdtbl S
 	INNER JOIN stdclubtbl SC
-		ON S.stdName = SC.stdName
+		ON SC.stdName = S.stdName
 	INNER JOIN clubtbl C
 		ON SC.clubName = C.clubName
 	ORDER BY C.clubName;
