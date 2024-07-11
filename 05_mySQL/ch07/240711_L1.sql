@@ -38,5 +38,3 @@ select name, concat(U.mobile1, U.mobile2) as '연락처'
 select name, concat(U.mobile1, U.mobile2) as '연락처'
 	from usertbl U
     where name IN (select name from usertbl where mobile1 IS null);
-
-
