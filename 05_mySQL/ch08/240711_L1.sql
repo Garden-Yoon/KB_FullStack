@@ -44,8 +44,35 @@ select * from usertbl;
 
 -- 구매테이블에 데이터 추가 (순서: userid, prodName, groupName, price, amount)
 -- 에러 발생 시 원인 설명
+INSERT INTO buytbl VALUES(NULL, 'KBS', '운동화', NULL, 30, 2);
+INSERT INTO buytbl VALUES(NULL, 'KBS', '노트북', '전자', 1000, 1);
+-- usertbl의 userID에 'JYP'가 없으므로 외래키 참조 제약을 위반하여 에러가 발생한다
+-- INSERT INTO buytbl VALUES(NULL, 'JYP', '모니터', '전자', 200, 1);
 
 
 
+-- 5page
+-- 기존 usertbl이 존재하는 경우 삭제하고
+DROP TABLE IF EXISTS usertbl;
+-- 기본키는 테이블 레벨에서 정의하고 제약조건명을 함께 지정한다
+CREATE TABLE usertbl(
+	userID CHAR(8) NOT NULL,
+    name VARCHAR(10) NOT NULL,
+    birthyear INT NOT NULL,
+    CONSTRAINT PRIMARY KEY PK__userTBL_userID(userID)
+);
 
 
+
+-- 6page
+-- 기존 prodTbl 존재 시 삭제하고 새로 만들기
+DROP TABLE IF EXISTS prodTbl;
+CREATE TABLE prodTbl(
+	prodCode CHAR(3) NOT NULL,
+    prodID CHAR(4) NOT NULL,
+    prodDate DATE NOT NULL,
+    prodCur CHAR(10) NULL,
+    -- 복합키로 기본키 정의함
+    CONSTRAINT PK_prodTbl_prodCode_prodID
+			   PRIMARY KEY (prodCode, prodID)
+);
