@@ -10,7 +10,7 @@ public class JUnitCycleTest {
         System.out.println("@BeforeAll");
     }
 
-    // 테스트 케이스를 시작하기 전 마다 실행
+    // 테스트 케이스를 시작하기 전마다 실행
     @BeforeEach
     public void beforeEach() {
         System.out.println("@BeforeEach");
