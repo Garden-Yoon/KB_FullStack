@@ -51,7 +51,12 @@ INSERT INTO buytbl VALUES(NULL, 'KBS', '노트북', '전자', 1000, 1);
 
 
 
+
 -- 5page
+-- 제약조건을 지워야 아래 drop이 가능함
+-- ALTER TABLE 테이블명 DROP FOREIGN KEY 외래키제약조건이름;
+ALTER TABLE buytbl DROP FOREIGN KEY buytbl_ibfk_1;
+
 -- 기존 usertbl이 존재하는 경우 삭제하고
 DROP TABLE IF EXISTS usertbl;
 -- 기본키는 테이블 레벨에서 정의하고 제약조건명을 함께 지정한다
@@ -59,7 +64,7 @@ CREATE TABLE usertbl(
 	userID CHAR(8) NOT NULL,
     name VARCHAR(10) NOT NULL,
     birthyear INT NOT NULL,
-    CONSTRAINT PRIMARY KEY PK__userTBL_userID(userID)
+    CONSTRAINT PRIMARY KEY PK_userTBL_userID(userID)
 );
 
 
