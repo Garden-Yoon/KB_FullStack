@@ -17,11 +17,11 @@ public class UserDaoImpl implements UserDao {
     Connection conn = JDBCUtil.getConnection();
 
     // USERS 테이블 관련 SQL 명령어
-    private String USER_LIST = "SELECT * FROM `user`";
-    private String USER_GET = "SELECT * FROM `user` WHERE `id` = ?";
+    private String USER_LIST = "SELECT * FROM users";
+    private String USER_GET = "SELECT * FROM users WHERE id = ?";
     private String USER_INSERT = "INSERT INTO users VALUES (?,?,?,?)";
-    private String USER_UPDATE = "UPDATE USERS SET name=>, role=?, WHERE id=?";
-    private String USER_DELETE = "DELETE FROM `user` WHERE id=?";
+    private String USER_UPDATE = "UPDATE users SET name=?, role=? WHERE id=?";
+    private String USER_DELETE = "DELETE FROM users WHERE id=?";
 
     // 회원 등록
     @Override
@@ -81,11 +81,22 @@ public class UserDaoImpl implements UserDao {
     // 회원 수정
     @Override
     public int update(UserVO user) throws SQLException {
-        return 0;
+        try (PreparedStatement pstmt = conn.prepareStatement(USER_UPDATE)) {
+            // 특정 아이디를 가진 회원의 이름과 역할 수정
+            pstmt.setString(1, user.getName());
+            pstmt.setString(2, user.getRole());
+            pstmt.setString(3, user.getId());
+            return pstmt.executeUpdate();
+        }
     }
 
+    // 회원 삭제
     @Override
     public int delete(String id) throws SQLException {
-        return 0;
+        try (PreparedStatement pstmt = conn.prepareStatement(USER_DELETE)) {
+            // 특정 아이디를 가진 회원 삭제
+            pstmt.setString(1, id);
+            return pstmt.executeUpdate();
+        }
     }
 }
