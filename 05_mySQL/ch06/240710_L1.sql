@@ -56,6 +56,7 @@ where name like '김%';
 
 -- 8page
 -- usertbl에서 김경호보다 큰 사람들의 이름과 키를 출력 (서브쿼리)
+use sqldb;
 select * from usertbl
 where height >(select height from usertbl where name ='김경호');
 
