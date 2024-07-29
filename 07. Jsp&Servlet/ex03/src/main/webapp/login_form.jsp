@@ -9,6 +9,7 @@
 <html>
 <body>
 <h1>getParameter 실습</h1>
+login만 명시한 것은 서블릿과 연결해주겠다는 의미
 <form action="login" method="post">
     <fieldset>
         <legend>로그인 폼</legend>

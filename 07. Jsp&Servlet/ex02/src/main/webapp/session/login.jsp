@@ -12,11 +12,13 @@
 <%
     String id = request.getParameter("userid");
     if (id == null || id.equals("")) {
-        response.sendRedirect("loginForm.jsp");
+        // id가 null이거나 입력되지 않은 경우, loginForm.html로 다시 이동하도록 리다이렉트 설정
+        response.sendRedirect("loginForm.html");
     } else {
+//        id가 입력됐을 경우
         String pw = request.getParameter("Password");
-        session.setAttribute("user", id);
-        session.setAttribute("password", pw);
+        session.setAttribute("userid", id);
+        session.setAttribute("Password", pw);
         out.print("안녕하세요" + id);
         out.print("<a href='loginInfo.jsp'>정보보기</a>");
     }

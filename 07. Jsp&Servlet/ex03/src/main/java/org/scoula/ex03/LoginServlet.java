@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+    // Get 메소드로 보낸 데이터를 받아오기 위해서는 doGet 메소드 사용
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,6 +33,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // get 메소드와 동일한 로직을 처리하고 싶으므로 doGet 호출
         request.setCharacterEncoding("UTF-8");
         doGet(request, response);
     }
