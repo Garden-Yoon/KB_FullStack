@@ -4,15 +4,15 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 <!--    helloServlet이 어떤 클래스인지 찾아주는 설정-->
-    <servlet>
-        <servlet-name>helloServlet</servlet-name>
-        <servlet-class>org.scoula.ex02.HelloServlet</servlet-class>
-    </servlet>
+<!--    <servlet>-->
+<!--        <servlet-name>helloServlet</servlet-name>-->
+<!--        <servlet-class>org.scoula.ex02.HelloServlet</servlet-class>-->
+<!--    </servlet>-->
 
-<!--    helloServlet의 url 매핑 설정-->
-    <servlet-mapping>
-        <servlet-name>helloServlet</servlet-name>
-        <url-pattern>/hello-servlet</url-pattern>
-    </servlet-mapping>
+<!--&lt;!&ndash;    helloServlet의 url 매핑 설정&ndash;&gt;-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>helloServlet</servlet-name>-->
+<!--        <url-pattern>/hello-servlet</url-pattern>-->
+<!--    </servlet-mapping>-->
     
 </web-app>
