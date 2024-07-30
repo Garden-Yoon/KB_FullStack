@@ -29,6 +29,7 @@ public class BoardServlet extends HttpServlet {
             String name = enu.nextElement();
             // 열거자에 저장된 이름으로 해당 값들을 가져옴
             String value = request.getParameter(name);
+            // hidden이었던 action값도 출력된다
             out.print(name+": "+value+"<br>");
         }
         out.print("</body></html>");
