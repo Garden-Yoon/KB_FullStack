@@ -19,6 +19,7 @@
 <%--    로그인 / 로그아웃  로직   --%>
 <%--    전 페이지에서 보여야하므로 navbar로 빼서 include 시킬 것임--%>
 <%--    <hr>--%>
+<%--    세션 쪽에 user 정보 넣어줘야 user값 받아오기가 가능--%>
 <%--    user값이 null이라면 로그인, 회원가입 화면 보여주기--%>
 <%--    <c:if test="${empty user}">--%>
 <%--        <a href="/login_form.jsp">로그인</a> | <a href="#">회원가입</a>--%>
@@ -26,13 +27,13 @@
 
 <%--    user값이 null이 아니라면 유저이름, 로그아웃 화면 보여주기--%>
 <%--    <c:if test="${!empty user}">--%>
-<%--        ${user.name} | <a href="/logout.jsp">로그아웃</a>--%>
+<%--        ${user.name} | <a href="/logout">로그아웃</a>--%>
 <%--    </c:if>--%>
 
-<%--    1. directive로 하는 방법--%>
+<%--    다른 문서 삽입 방법 1. directive로 하는 방법--%>
     <%@include file="navbar.jsp"%>
 
-<%--    2. 표준 action 태그로 하는 방법--%>
+<%--    다른 문서 삽입 방법 2. 표준 action 태그로 하는 방법--%>
 <%--    <jsp:include page="navbar.jsp" />--%>
 
 <hr>
@@ -57,10 +58,15 @@
 
     <br>
     <hr>
+<%--    날짜 출력--%>
     ${today}<br>
+<%--    날짜만 출력--%>
     <fmt:formatDate value="${today}" type="date"/><br>
+<%--    시간만 출력--%>
     <fmt:formatDate value="${today}" type="time"/><br>
+<%--    날짜&시간 모두 출력--%>
     <fmt:formatDate value="${today}" type="both"/><br>
+<%--    dateStyle과 timeStyle로 시간 포매팅을 각각 설정 가능--%>
     <fmt:formatDate value="${today}" type="both" dateStyle="short" timeStyle="long"/><br>
     <fmt:formatDate value="${today}" type="both" dateStyle="long" timeStyle="short"/><br>
     <fmt:formatDate value="${today}" pattern="YYYY-MM-dd HH:mm:ss" /><br>

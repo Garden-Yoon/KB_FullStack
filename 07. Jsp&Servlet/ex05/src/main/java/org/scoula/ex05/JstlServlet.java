@@ -37,6 +37,7 @@ public class JstlServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
 
+        // 현재 날짜로 today 속성 세팅
         request.setAttribute("today", new Date());
 
         request.getRequestDispatcher("jstl_ex.jsp")
