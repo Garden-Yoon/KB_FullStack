@@ -16,7 +16,10 @@ import java.util.Map;
 
 // 경로 지정하는 방법은 2가지가 있다. 1) 디렉토리 기반, 2) 확장명 기반
 // 디렉토리 기반(ex: /board), 확장명 기반(*.do)
-@WebServlet(name = "frontControllerServlet", value ="/")
+// FrontController : 주소 요청만 받음
+// WebServlet이 Dispatcher에 있으면 디스패쳐와 FrontController 둘 다에서 받음
+// (디스패쳐가 상속이 되어있어서 디스패쳐에서 먼저 받음)
+//@WebServlet(name = "frontControllerServlet", value ="/")
 public class DispatcherServlet extends HttpServlet {
 
     // 요청별로 Map을 가진다

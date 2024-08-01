@@ -20,8 +20,7 @@ public class FrontControllerServlet extends DispatcherServlet {
     TodoController todoController = new TodoController();
 
     @Override
-    public void init() throws ServletException {
-
+    protected void createMap(Map<String, Command> map, Map<String, Command> postMap) {
         // "/" 경로로 HomeController의 getIndex 메소드를 찾을 수 있다 (메소드 참조)
         // put으로 Map에 아이템을 넣어준다
         getMap.put("/", homeController::getIndex);
