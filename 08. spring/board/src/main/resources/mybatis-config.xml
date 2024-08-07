@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DTD : Document Type Definition, 문서 타입 정의-->
+<!--mybatis 구성 파일이 유효한지 검사-->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+<!--        스네이크 케이스를 자바쪽에선 카멜 케이스로 사용 가능, 기본값 false -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+</configuration>

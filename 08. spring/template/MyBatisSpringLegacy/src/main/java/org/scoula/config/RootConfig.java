@@ -20,8 +20,7 @@ import javax.sql.DataSource;
 // @PropertySource : 프로퍼티 파일을 어디서 가져올 지 설정 (classpath를 붙여줘야 프로젝트의 루트로 접근)
 // 그냥 / 를 사용하면 webapp 폴더가 루트가 된다
 @PropertySource({"classpath:/application.properties"})
-// @MapperScan : 
-@MapperScan(basePackages = {"org.scoula.mapper"})   // mapper의 위치 알려주기
+//@MapperScan(basePackages = {})   // mapper의 위치 알려주기
 public class RootConfig {
     // application.properties 파일에서 값을 읽어와서 변수에 주입
     @Value("${jdbc.driver}") String driver;
