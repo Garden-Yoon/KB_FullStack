@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -19,14 +20,19 @@ import javax.sql.DataSource;
 @Configuration
 // @PropertySource : 프로퍼티 파일을 어디서 가져올 지 설정 (classpath를 붙여줘야 프로젝트의 루트로 접근)
 // 그냥 / 를 사용하면 webapp 폴더가 루트가 된다
+@ComponentScan(basePackages = {"org.scoula.board.service"})
 @PropertySource({"classpath:/application.properties"})
 @MapperScan(basePackages = {"org.scoula.board.mapper"})   // mapper의 위치 알려주기
 public class RootConfig {
     // application.properties 파일에서 값을 읽어와서 변수에 주입
-    @Value("${jdbc.driver}") String driver;
-    @Value("${jdbc.url}") String url;
-    @Value("${jdbc.username}") String username;
-    @Value("${jdbc.password}") String password;
+    @Value("${jdbc.driver}")
+    private String driver;
+    @Value("${jdbc.url}")
+    private String url;
+    @Value("${jdbc.username}")
+    private String username;
+    @Value("${jdbc.password}")
+    private String password;
 
     @Bean
     public DataSource dataSource() {
@@ -54,7 +60,7 @@ public class RootConfig {
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         // SqlSessionFactoryBean 객체 생성
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
-        // mybatis 설정 파일으 ㅣ위치 알려줌
+        // mybatis 설정 파일의 위치 알려줌
         sqlSessionFactory.setConfigLocation(
                 applicationContext.getResource("classpath:/mybatis-config.xml"));
 //        DataSource 설정
