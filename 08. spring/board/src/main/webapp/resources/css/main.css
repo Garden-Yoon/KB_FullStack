@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'HancomMalangMalang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/HancomMalangMalang-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    font-family: 'HancomMalangMalang-Regular';
+}
+
+.avatar-sm {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.jumbotron{
+    background-image: url('/resources/images/background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    padding : 2rem;
+    margin-top: 1.5rem;
+}

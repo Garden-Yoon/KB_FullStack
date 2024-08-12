@@ -69,5 +69,43 @@ class BoardControllerTest {
         log.info(resultPage);
     }
 
+    @Test
+    public void get() throws Exception {
+        // param 부분에 해당 주소 값을 받아올때 필요한 파라미터 값을 넘겨준다
+        log.info(
+                mockMvc.perform(MockMvcRequestBuilders.get("/board/get").param("no", "1"))
+                        .andReturn()
+                        .getModelAndView()
+                        .getModelMap()
+                        );
+    }
+
+    @Test
+    public void update() throws Exception{
+        String resultPage = mockMvc.perform(
+                MockMvcRequestBuilders.post("/board/update")
+                        .param("no", "1")
+                        .param("title", "제목 수정한당")
+                        .param("content","수정된 테스트 새 글 내용")
+                        .param("content", "수정된 테스트 새 글 내용")
+                        .param("writer", "user00"))
+                        .andReturn()
+                        .getModelAndView()
+                        .getViewName();
+                log.info(resultPage);
+    }
+
+    @Test
+    public void delete() throws Exception {
+        // 삭제 전 데이터베이스에 게시물 번호 확인할 것
+        String resultPage = mockMvc.perform(
+                MockMvcRequestBuilders.post("/board/delete")
+                        .param("no", "25"))
+                .andReturn()
+                .getModelAndView()
+                .getViewName();
+        log.info(resultPage);
+    }
+
 
 }

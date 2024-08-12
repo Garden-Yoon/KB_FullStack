@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cbbb2959-d6ae-4039-ab84-13c3efe3e960" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/08. spring/board/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/08. spring/board/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/08. spring/board/src/main/java/org/scoula/board/mapper/BoardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/08. spring/board/src/main/java/org/scoula/board/mapper/BoardMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/08. spring/board/src/main/java/org/scoula/config/RootConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/08. spring/board/src/main/java/org/scoula/config/RootConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/08. spring/board/src/main/java/org/scoula/config/ServletConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/08. spring/board/src/main/java/org/scoula/config/ServletConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/08. spring/board/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/08. spring/board/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/08. spring/board/src/main/resources/org/scoula/mapper/MapperTemplate.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/08. spring/board/src/test/java/org/scoula/board/mapper/BoardMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/08. spring/board/src/test/java/org/scoula/board/mapper/BoardMapperTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="cbbb2959-d6ae-4039-ab84-13c3efe3e960" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,23 +10,35 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Garden-Yoon"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Garden-Yoon/fullstack",
+    "accountId": "3d44db02-6198-43ce-a264-eb620414d494"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2kMs5Uq9bftmxkjUKJMbbvGOo3S" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -52,6 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723104597669</updated>
       <workItem from="1723104598216" duration="4000" />
+      <workItem from="1723421882595" duration="5000" />
     </task>
     <servers />
   </component>
