@@ -34,4 +34,16 @@ public class BoardController {
     public ResponseEntity<BoardDTO> create(@RequestBody BoardDTO board) {
         return ResponseEntity.ok(service.create(board));
     }
+
+    // PUT :: http://localhost:8080/api/board/7
+    @PutMapping("/{no}")
+    public ResponseEntity<BoardDTO> update(@PathVariable("no") Long no, @RequestBody BoardDTO board) {
+        return ResponseEntity.ok(service.update(board));
+    }
+
+    // DELTETE :: http://localhost:8080/api/board/7
+    @DeleteMapping("/{no}")
+    public ResponseEntity<BoardDTO> delete(@PathVariable Long no) {
+        return ResponseEntity.ok(service.delete(no));
+    }
 }

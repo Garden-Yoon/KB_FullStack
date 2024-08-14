@@ -83,8 +83,9 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public BoardDTO update(BoardDTO board) {
         log.info("update................"+ board);
-        // mapper의 update를 호출해서 수정된 행의 수가 1일 경우 true 반환
+//         mapper의 update를 호출해서 수정된 행의 수가 1일 경우 true 반환
 //        return mapper.update(board.toVO()) == 1;
+        mapper.update(board.toVO());
         return get(board.getNo());
     }
 

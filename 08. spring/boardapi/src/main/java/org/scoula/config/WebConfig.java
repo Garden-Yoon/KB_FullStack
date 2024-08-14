@@ -13,8 +13,6 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
     final long MAX_REQUEST_SIZE = 1024 * 1024 * 20L;
     final int FILE_SIZE_THRESHOLD = 1024 * 1024 * 5;
 
-
-
     
     // RootConfig 클래스를 뭐로 할 것인지 반환
     @Override
