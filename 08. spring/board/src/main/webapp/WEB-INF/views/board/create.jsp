@@ -8,7 +8,7 @@
 <h1 class="page-header my-4"><i class="far fa-edit"></i>새 글 쓰기</h1>
 
 <div>
-    <form action="post">
+    <form method="post" enctype="multipart/form-data">
         <div>
             <label>제목</label>
             <input name="title" class="form-control">
@@ -17,6 +17,11 @@
         <div>
             <label>작성자</label>
             <input name="writer" class="form-control">
+        </div>
+
+        <div>
+            <label>첨부파일</label>
+            <input type="file" class="form-control-file border" multiple name="files" />
         </div>
 
         <div>

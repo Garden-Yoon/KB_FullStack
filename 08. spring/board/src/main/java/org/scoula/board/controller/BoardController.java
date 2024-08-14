@@ -3,14 +3,18 @@ package org.scoula.board.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import org.scoula.board.domain.BoardAttachmentVO;
 import org.scoula.board.dto.BoardDTO;
 import org.scoula.board.service.BoardService;
+import org.scoula.common.util.UploadFiles;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
 
 @Controller     // Controller 기능을 하는 빈 등록
 @Log4j
@@ -35,15 +39,19 @@ public class BoardController {
     }
 
     @PostMapping("/create")
-    public String create(BoardDTO board) {
+    public String create(BoardDTO board, RedirectAttributes ra) {
         log.info("create" + board);
         // service -> mapper.java -> mapper.xml
         service.create(board);
+
+
+        ra.addFlashAttribute("result", board.getNo());
+
         // 게시물 목록 페이지로 리다이렉트
         return "redirect:/board/list";
     }
 
-    @GetMapping({"/get", "/update"})    // '/get'과 'update' 경로를 둘 다 처리 
+    @GetMapping({"/get", "/update"})    // '/get'과 'update' 경로를 둘 다 처리
     // @RequestParam : 주소 뒤에 ?를 붙여서 쿼리스트링으로 정보를 받아준다
     public void get(@RequestParam("no") Long no, Model model) {
         log.info("/get or update");
@@ -63,5 +71,13 @@ public class BoardController {
         log.info("delete......" + no);
         service.delete(no);
         return "redirect:/board/list";
+    }
+
+    @GetMapping("/download/{no}")
+    @ResponseBody   //view를 사용하지 않고 직접 내보냄
+    public void download(@PathVariable("no") Long no, HttpServletResponse response) throws Exception {
+        BoardAttachmentVO attach = service.getAttachment(no);
+        File file = new File(attach.getPath());
+        UploadFiles.download(response, file, attach.getFilename());
     }
 }
