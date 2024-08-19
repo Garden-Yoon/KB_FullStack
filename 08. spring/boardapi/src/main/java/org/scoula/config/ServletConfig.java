@@ -17,7 +17,8 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackages = {
         "org.scoula.exception",
         "org.scoula.board.controller",
-        "org.scoula.controller"})
+        "org.scoula.controller",
+        "org.scoula.weather.controller"})
 public class ServletConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
