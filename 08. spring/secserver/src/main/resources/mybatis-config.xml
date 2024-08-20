@@ -6,5 +6,11 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+    <typeAliases>
+<!--        별칭으로 만들어서 mapper 타입을 간략하게 사용할 수 있게 해줌-->
+        <package name="org.scoula.security.account.domain" />
+    </typeAliases>
 </configuration>
