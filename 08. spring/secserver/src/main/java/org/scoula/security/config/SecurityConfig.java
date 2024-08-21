@@ -44,6 +44,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
+    // addFilterBefore 메소드를 사용하여 CharacterEncodingFilter를 CsrfFilter 이전에 넣어준다
+//         이 설정은 모든 요청에 대해 UTF-8 인코딩 적용 후에 CSRF 보호가 이루어지도록 함
+        http.addFilterBefore(encodingFilter(), CsrfFilter.class);
+
         // 경로별 접근 권한 설정
         http.authorizeRequests()
                 // '/security/all' 경로는 모든 사용자에게 접근허용
@@ -66,10 +70,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/security/logout"); // GET: 로그아웃 이후 이동할 페이지
 
 
-    // addFilterBefore 메소드를 사용하여 CharacterEncodingFilter를 CsrfFilter 이전에 넣어준다
-        // 이 설정은 모든 요청에 대해 UTF-8 인코딩 적용 후에 CSRF 보호가 이루어지도록 함
-//        http.addFilterBefore(encodingFilter(), CsrfFilter.class);
-//        super.configure(http);
     }
 
     @Override
