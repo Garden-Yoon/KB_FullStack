@@ -3,6 +3,7 @@ package org.scoula.security.util;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
 
@@ -13,13 +14,13 @@ import java.util.Date;
 @Component
 public class JwtProcessor {
     //토큰 유효시각을 5분으로 설정
-    static private final long TOKEN_VALID_MILISECOND = 1000L * 60 * 5; // 5 분
+    static private final long TOKEN_VALID_MILISECOND = 1000L * 60 * 10; // 5 분
     // 비밀 키 설정 - 개발 시에는 서버 재기동하는 경우가 많으므로 임의의 문자열 (너무 짧으면 에러)
     private String secretKey = "123klad213eqwefadsf312412hhigalkfjda;jlakjfkjaljflksjlfjsd";
     private Key key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
 
     // 비밀 키 설정 - 매번 변경되므로 운영 시에만 사용
-    // private Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256); -- 운영시 사용
+//    private Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     // JWT 토큰 생성 메소드
     public String generateToken(String subject) {
@@ -39,7 +40,7 @@ public class JwtProcessor {
                 .setSigningKey(key)     // 서명 검증을 위한키 설정
                 .build()
                 .parseClaimsJws(token)  // 토큰 파싱, jws는 서명이 있는 jwt로 파싱
-                .getBody()      
+                .getBody()
                 .getSubject();  // Subject(사용자 이름) 반환
     }
 

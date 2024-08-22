@@ -3,9 +3,16 @@ package org.scoula.security.config;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.mybatis.spring.annotation.MapperScan;
+import org.scoula.security.filter.AuthenticationErrorFilter;
+import org.scoula.security.filter.JwtAuthenticationFilter;
+import org.scoula.security.filter.JwtUsernamePasswordAuthenticationFilter;
+import org.scoula.security.handler.CustomAccessDeniedHandler;
+import org.scoula.security.handler.CustomAuthenticationEntryPoint;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,6 +23,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.filter.CharacterEncodingFilter;
@@ -32,6 +41,15 @@ import org.springframework.web.filter.CorsFilter;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    @Autowired
+    private JwtUsernamePasswordAuthenticationFilter jwtUsernamePasswordAuthenticationFilter;
+    private final CustomAccessDeniedHandler accessDeniedHandler;
+    private final CustomAuthenticationEntryPoint authenticationEntryPoint;
+
+
+    private final AuthenticationErrorFilter authenticationErrorFilter;
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -69,7 +87,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // 특정 경로에 대한 보안 필터를 적용하지 않도록 접근 제한 무시 경로 설정 – resource
     @Override
     public void configure(WebSecurity web) throws Exception {
-        // 해당 경로들은 보안 검사 무시ㄴ
+        // 해당 경로들은 보안 검사 무시
         web.ignoring().antMatchers("/assets/**", "/*", "/api/member/**");
     }
 
@@ -89,13 +107,39 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         // addFilterBefore 메소드를 사용하여 CharacterEncodingFilter를 CsrfFilter 이전에 넣어준다
         // 이 설정은 모든 요청에 대해 UTF-8 인코딩 적용 후에 CSRF 보호가 이루어지도록 함
-        http.addFilterBefore(encodingFilter(), CsrfFilter.class);
+        http.addFilterBefore(encodingFilter(), CsrfFilter.class)   // 한글 인코딩 필터 설정
+                // 기준필터로는 사용자 필터를 사용할 수 없다
+                // 실행 순서 : jwtUsernamePasswordAuthenticationFilter -> jwtAuthenticationFilter
+                // 인증 에러 필터
+                .addFilterBefore(authenticationErrorFilter, UsernamePasswordAuthenticationFilter.class)
+                // Jwt 인증 필터
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                // 로그인 인증 필터 (필터 순서 : jwtUsernamePasswordAuthenticationFilter -> UsernamePasswordAuthenticationFilter)
+                .addFilterBefore(jwtUsernamePasswordAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
+        // 예외 처리 설정
+        http
+                .exceptionHandling()
+                // 인증 실패 시 처리할 객체
+                .authenticationEntryPoint(authenticationEntryPoint)
+                // 접근 거부 시 처리할 객체
+                .accessDeniedHandler(accessDeniedHandler);
+
+
 
         http.httpBasic().disable() // 기본 HTTP 인증 비활성화
                 .csrf().disable() // CSRF 비활성화
                 .formLogin().disable() // formLogin 비활성화 관련 필터 해제
                 // 세션 생성 모드 설정 (stateless : 세션 사용 안하겠다)
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http
+                .authorizeRequests() // 경로별 접근 권한 설정
+                .antMatchers(HttpMethod.OPTIONS).permitAll()    // 모든 Options 요청 허용
+                .antMatchers("/api/security/all").permitAll() // 해당 경로의 모든 요청 허용
+                .antMatchers("/api/security/member").access("hasRole('ROLE_MEMBER')") // ROLE_MEMBER 이상 접근 허용
+                .antMatchers("/api/security/admin").access("hasRole('ROLE_ADMIN')") // ROLE_ADMIN 이상 접근 허용
+                .anyRequest().authenticated(); // 나머지는 로그인 된 경우 모두 허용
 
     }
 

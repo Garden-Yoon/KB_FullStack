@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.AuthenticationException;
 
-import javax.naming.AuthenticationException;
 import javax.servlet.http.HttpServletRequest;
 
 @NoArgsConstructor
