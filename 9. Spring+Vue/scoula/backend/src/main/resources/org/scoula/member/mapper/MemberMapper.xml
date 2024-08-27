@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "
+-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.scoula.member.mapper.MemberMapper">
+<!--    AuthVO와 관련된 매핑 설정-->
+    <resultMap id="authMap" type="AuthVO">
+    <result property="username" column="username" />
+    <result property="auth" column="auth" />
+</resultMap>
+<!--    MemberVO와 관련된 매핑 설정-->
+    <resultMap id="memberMap" type="MemberVO">
+        <id property="username" column="username" />
+        <result property="username" column="username" />
+        <result property="password" column="password" />
+        <result property="email" column="email" />
+        <result property="regDate" column="reg_date" />
+        <result property="updateDate" column="update_date" />
+        <collection property="authList" resultMap="authMap" />
+    </resultMap>
+
+<!--    주어진 username에 해당되는 회원 정보를 권한을 포함하여 조회-->
+<!--    기준이 되는 테이블 정보는 없으면 안된다 (member 테이블 기준) -->
+    <select id="get" resultMap="memberMap">
+        SELECT m.username, password, email, reg_date, update_date, auth
+        FROM
+            tbl_member m
+                LEFT OUTER JOIN tbl_member_auth a
+                                ON m.username = a.username
+        where m.username = #{username}
+    </select>
+
+<!--    주어진 username으로 회원 정보를 찾는 쿼리, 아이디 중복 체크-->
+    <select id="findByUsername" resultType="org.scoula.security.account.domain.MemberVO">
+        SELECT * FROM tbl_member WHERE username = #{username}
+    </select>
+
+<!--    회원 가입 시, 회원 정보를 데이터 베이스에 삽입-->
+    <insert id="insert">
+        INSERT INTO tbl_member
+        VALUES(#{username}, #{password}, #{email}, now(), now() )
+    </insert>
+
+<!--    회원의 권한 정보를 데이터베이스에 삽입-->
+    <insert id="insertAuth">
+        INSERT INTO tbl_member_auth(username, auth)
+        VALUES(#{username}, #{auth})
+    </insert>
+</mapper>
