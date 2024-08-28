@@ -1,6 +1,7 @@
 import api from 'axios';
 const BASE_URL = '/api/member';
 const headers = { 'Content-Type': 'multipart/form-data' };
+
 export default {
   // username 중복 체크, true: 중복(사용불가), false: 사용 가능
   async checkUsername(username) {

@@ -1,8 +1,13 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import { useAuthStore } from '@/stores/auth';
+
+const store = useAuthStore();
+
 const router = useRouter();
 const logout = (e) => {
   // 로그아웃 ->  루트 경로로 이동시켜주는 함수
+  store.logout();
   router.push('/');
 };
 </script>

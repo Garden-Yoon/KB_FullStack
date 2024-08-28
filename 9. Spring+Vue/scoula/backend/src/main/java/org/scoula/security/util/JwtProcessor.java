@@ -14,7 +14,7 @@ import java.util.Date;
 @Component
 public class JwtProcessor {
     //토큰 유효시각을 5분으로 설정
-    static private final long TOKEN_VALID_MILISECOND = 1000L * 60 * 10; // 5 분
+    static private final long TOKEN_VALID_MILISECOND = 1000L * 60 * 10; // 10 분
     // 비밀 키 설정 - 개발 시에는 서버 재기동하는 경우가 많으므로 임의의 문자열 (너무 짧으면 에러)
     private String secretKey = "123klad213eqwefadsf312412hhigalkfjda;jlakjfkjaljflksjlfjsd";
     private Key key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));

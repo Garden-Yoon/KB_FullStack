@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.DecimalFormat;
 
@@ -49,4 +50,24 @@ public class UploadFiles {
             Files.copy(Paths.get(file.getPath()), bos);
         }
     }
+
+    // 이미지 다운로드하는 메소드 (출력용)
+    public static void downloadImage(HttpServletResponse response, File file) {
+        try {
+            Path path = Path.of(file.getPath());
+            String mimeType = Files.probeContentType(path);
+            response.setContentType(mimeType);
+            response.setContentLength((int) file.length());
+            
+            // 파일을 클라이언트(뷰, 프론트)로 전송하기 위해 출력 스트림 사용
+            try (OutputStream os = response.getOutputStream();
+                 BufferedOutputStream bos = new BufferedOutputStream(os)) {
+                Files.copy(path, bos);
+            }
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

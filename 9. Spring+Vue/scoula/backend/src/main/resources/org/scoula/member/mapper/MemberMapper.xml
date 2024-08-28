@@ -20,7 +20,18 @@
         <collection property="authList" resultMap="authMap" />
     </resultMap>
 
-<!--    주어진 username에 해당되는 회원 정보를 권한을 포함하여 조회-->
+    <update id="update">
+        UPDATE tbl_member
+        SET
+            email=#{email},
+            update_date=now()
+        WHERE username=#{username}
+    </update>
+
+
+
+
+    <!--    주어진 username에 해당되는 회원 정보를 권한을 포함하여 조회-->
 <!--    기준이 되는 테이블 정보는 없으면 안된다 (member 테이블 기준) -->
     <select id="get" resultMap="memberMap">
         SELECT m.username, password, email, reg_date, update_date, auth

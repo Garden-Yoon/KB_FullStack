@@ -8,4 +8,5 @@ public interface MemberMapper {
     MemberVO findByUsername(String username); // id 중복 체크시 사용
     int insert(MemberVO member); // 회원 정보 추가
     int insertAuth(AuthVO auth); // 회원 권한 정보 추가
+    int update(MemberVO member);
 }
