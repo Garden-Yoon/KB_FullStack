@@ -31,13 +31,13 @@ public class BoardController {
 
     // POST :: http://localhost:8080/api/board
     @PostMapping("")
-    public ResponseEntity<BoardDTO> create(@RequestBody BoardDTO board) {
+    public ResponseEntity<BoardDTO> create( BoardDTO board) {
         return ResponseEntity.ok(service.create(board));
     }
 
     // PUT :: http://localhost:8080/api/board/7
     @PutMapping("/{no}")
-    public ResponseEntity<BoardDTO> update(@PathVariable("no") Long no, @RequestBody BoardDTO board) {
+    public ResponseEntity<BoardDTO> update(@PathVariable("no") Long no,  BoardDTO board) {
         return ResponseEntity.ok(service.update(board));
     }
 

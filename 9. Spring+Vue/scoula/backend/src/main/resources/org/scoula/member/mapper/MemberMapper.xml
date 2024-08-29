@@ -23,12 +23,18 @@
     <update id="update">
         UPDATE tbl_member
         SET
-            email=#{email},
-            update_date=now()
-        WHERE username=#{username}
+            email = #{email},
+            update_date = now()
+        WHERE username = #{username}
     </update>
 
-
+    <update id="updatePassword">
+        UPDATE tbl_member
+        SET
+            password = #{newPassword},
+            update_date = now()
+        WHERE username =#{username}
+    </update>
 
 
     <!--    주어진 username에 해당되는 회원 정보를 권한을 포함하여 조회-->

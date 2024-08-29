@@ -55,7 +55,15 @@ export const useAuthStore = defineStore('auth', () => {
     }
   };
 
-  load();
+  // 사용자의 프로필(이메일)을 변경하는 함수
+  const changeProfile = (member) => {
+    state.value.user.email = member.email;
+    // 이미 auth 정보가 있는 경우 덮어쓴다
+    localStorage.setItem('auth', JSON.stringify(state.value));
+  };
 
-  return { state, username, email, isLogin, login, logout, getToken };
+  load(); // 스토어가 초기화될 때 인증 정보 로드
+
+  // 외부 클래스에서 사용하기 위해서는 return문 필수
+  return { state, username, email, isLogin, changeProfile, login, logout, getToken };
 });

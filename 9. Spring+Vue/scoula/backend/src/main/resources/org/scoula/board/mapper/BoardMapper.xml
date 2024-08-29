@@ -61,6 +61,7 @@
         where no=#{no}
     </update>
 
+
 <!--    해당 no 컬럼과 일치하는 행을 삭제-->
     <delete id="delete">
         delete from tbl_board where no=#{no}
@@ -110,7 +111,5 @@
         <result column="update_date"    property="updateDate" />
         <collection property="attaches" resultMap="attachmentMap" />
     </resultMap>
-
-
 
 </mapper>
