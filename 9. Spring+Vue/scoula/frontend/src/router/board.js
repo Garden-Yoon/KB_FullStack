@@ -6,4 +6,24 @@ export default [
     name: 'board/list',
     component: () => import('../pages/board/BoardListPage.vue'),
   },
+
+  {
+    // 게시판 상세 페이지에 대한 라우트 (:no 는 바뀌는 변수 부분)
+    path: '/board/detail/:no',
+    name: 'board/detail',
+    component: () => import('../pages/board/BoardDetailPage.vue'),
+  },
+
+  {
+    // 게시판 작성 페이지에 대한 라우트
+    path: '/board/create',
+    name: 'board/create',
+    component: () => import('../pages/board/BoardCreatePage.vue'),
+  },
+  {
+    // 게시판 수정 페이지에 대한 라우트 (:no 는 바뀌는 변수 부분)
+    path: '/board/update/:no',
+    name: 'board/update',
+    component: () => import('../pages/board/BoardUpdatePage.vue'),
+  },
 ];
