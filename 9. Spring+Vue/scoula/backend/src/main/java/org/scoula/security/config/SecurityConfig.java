@@ -88,7 +88,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         // 해당 경로들은 보안 검사 무시
-        web.ignoring().antMatchers("/assets/**", "/*", "/api/member/**");
+//        web.ignoring().antMatchers("/assets/**", "/*", "/api/member/**");
+        web.ignoring().antMatchers("/assets/**", "/*");
     }
 
 
@@ -126,7 +127,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .accessDeniedHandler(accessDeniedHandler);
 
 
-
         http.httpBasic().disable() // 기본 HTTP 인증 비활성화
                 .csrf().disable() // CSRF 비활성화
                 .formLogin().disable() // formLogin 비활성화 관련 필터 해제
@@ -139,6 +139,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/api/board/**").authenticated()
                 .antMatchers(HttpMethod.PUT, "/api/board/**").authenticated()
                 .antMatchers(HttpMethod.DELETE, "/api/board/**").authenticated()
+                .antMatchers(HttpMethod.GET, "/api/member/*").authenticated() // 멤버 정보 얻어오기
+                .antMatchers(HttpMethod.PUT, "/api/member/*/changepassword").authenticated() // 비밀번호 변경 url
                 .anyRequest().permitAll(); // 나머지 요청들은 모두 접근 허용
 //                .antMatchers("/api/security/all").permitAll() // 해당 경로의 모든 요청 허용
 //                .antMatchers("/api/security/member").access("hasRole('ROLE_MEMBER')") // ROLE_MEMBER 이상 접근 허용

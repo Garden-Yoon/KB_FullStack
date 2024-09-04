@@ -16,7 +16,7 @@ const article = ref({});
 
 // 뒤로가기 함수
 const back = () => {
-  router.push({ name: 'board/list' });
+  router.push({ name: 'board/list', query: cr.query });
 };
 
 // 게시글 수정

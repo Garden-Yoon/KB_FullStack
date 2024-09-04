@@ -64,17 +64,21 @@ load();
       <input type="text" class="form-control" placeholder="제목" id="title" v-model="article.title" />
       <div class="invalid-feedback">제목은 필수 요소입니다.</div>
     </div>
+    <!-- 기존 첨부파일 목록 -->
     <div class="mb-3 mt-3">
       <label class="form-label"> 기존 첨부파일 </label>
+      <!-- 첨부파일들을 돌면서 이름과 휴지통 아이콘 생성, 휴지통 클릭 시, 해당 첨부파일 삭제됨 -->
       <div v-for="file in attachments" :key="file.no" class="attach">
         <i class="fa-solid fa-paperclip"></i> {{ file.filename }}
         <i class="fa-solid fa-trash-can text-danger ms-2" @click="removeFile(file.no, file.filename)"></i>
       </div>
     </div>
     <div class="mb-3 mt-3">
+      <!-- 새로운 첨부파일 업로드 -->
       <label for="files" class="form-label"> 첨부파일 </label>
       <input type="file" class="form-control" placeholder="첨부파일" id="files" ref="files" multiple />
     </div>
+    <!-- 내용 입력 필드 -->
     <div class="mb-3 mt-3">
       <label for="content" class="form-label"> 내용 </label>
       <textarea class="form-control" placeholder="내용" id="content" v-model="article.content" rows="10"></textarea>
@@ -86,6 +90,7 @@ load();
     </div>
   </form>
 </template>
+
 <style>
 .fa-trash-can {
   cursor: pointer;

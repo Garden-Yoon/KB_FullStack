@@ -7,6 +7,8 @@ import org.scoula.board.domain.BoardAttachmentVO;
 import org.scoula.board.dto.BoardDTO;
 import org.scoula.board.service.BoardService;
 import org.scoula.common.UploadFiles;
+import org.scoula.common.pagination.Page;
+import org.scoula.common.pagination.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,11 +23,16 @@ import java.util.List;
 public class BoardController {
     private final BoardService service;
 
-    // GET :: http://localhost:8080/api/board
     @GetMapping("")
-    public ResponseEntity<List<BoardDTO>> getList() {
-        return ResponseEntity.ok(service.getList());
+    public ResponseEntity<Page> getList(PageRequest pageRequest) {
+        return ResponseEntity.ok(service.getPage(pageRequest));
     }
+
+//    // GET :: http://localhost:8080/api/board
+//    @GetMapping("")
+//    public ResponseEntity<List<BoardDTO>> getList() {
+//        return ResponseEntity.ok(service.getList());
+//    }
 
     // GET :: http://localhost:8080/api/board/1
     @GetMapping("/{no}")

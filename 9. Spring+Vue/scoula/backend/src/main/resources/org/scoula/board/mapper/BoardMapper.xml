@@ -75,16 +75,31 @@
         values(#{filename}, #{path}, #{contentType}, #{size}, #{bno})
     </insert>
 
+
     <select id="getAttachmentList" resultType="BoardAttachmentVO">
         select * from tbl_board_attachment
         where bno = #{bno}
         order by filename
     </select>
 
+
     <select id="getAttachment" resultType="BoardAttachmentVO">
         select * from tbl_board_attachment
         where no = #{no}
     </select>
+
+
+<!--    board 테이블에서 전체 게시글 개수 조회-->
+    <select id="getTotalCount" resultType="java.lang.Integer">
+        select count(*) from tbl_board
+    </select>
+
+<!--    board테이블에서 offtset 인덱스에서 시작해서 amount만큼 잘라낸 것을 가져온다 -->
+    <select id="getPage" resultType="BoardVO">
+        select * from tbl_board order by no desc
+            limit #{offset}, #{amount}
+    </select>
+
 
     <delete id="deleteAttachment">
         delete from tbl_board_attachment

@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'HancomMalangMalang-Regular';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/HancomMalangMalang-Regular.woff2')
-    format('woff2');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/HancomMalangMalang-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
@@ -26,4 +25,32 @@
 .avatar-lg {
   width: 80px;
   height: 80px;
+}
+
+/* 페이지 네이션*/
+.pagination-container {
+  display: flex;
+  /* column-gap: 10px; */
+}
+.paginate-buttons {
+  height: 40px;
+  width: 40px;
+  /* border-radius: 20px; */
+  cursor: pointer;
+  background-color: white; /*rgb(242, 242, 242);*/
+  border: 1px solid white; /* rgb(217, 217, 217);*/
+  color: black;
+}
+.paginate-buttons:hover {
+  border-radius: 20px;
+  background-color: #d8d8d8;
+}
+.active-page {
+  border-radius: 20px;
+  background-color: #3498db;
+  border: 1px solid #3498db;
+  color: white;
+}
+.active-page:hover {
+  background-color: #2988c8;
 }
